@@ -1,13 +1,14 @@
-from schemas.chat_scheme import (
-    SendMessageScheme,
-)
+from datetime import datetime
 
+from schemas.chat_scheme import SendMessageScheme
 from systems.chat_system import chat, Message 
 
 
 async def send_message(message: SendMessageScheme) -> dict:
 
-    await chat.add_message(Message(**message.dict()))
+    current_time = datetime.now().isoformat()
+    print(current_time)
+    await chat.add_message(Message(text=message.text, timestamp=current_time))
 
     return {'message': 'Message was sent'}
 
