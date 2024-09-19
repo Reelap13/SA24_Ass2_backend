@@ -1,11 +1,11 @@
-from fastapi import APIRouter, Depends
-from fastapi import Request
+from fastapi import APIRouter, Request
 
 from services import chat_service
 from schemas.chat_scheme import SendMessageScheme
 from services.response_service import ResponseService
 
 router = APIRouter(tags=["Messages"])
+
 
 @router.post("/")
 async def send_message(
