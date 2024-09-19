@@ -4,7 +4,10 @@ import os
 
 from .message import Message
 
-path = "C:\\Users\\mixai\\Education\\SoftwareArchitecture\\Assignment02\\SA24_Ass2_backend\\data\\chat"
+path = (
+    "C:\\Users\\mixai\\Education\\SoftwareArchitecture\\"
+    "Assignment02\\SA24_Ass2_backend\\data\\chat"
+)
 
 
 def load_messages() -> List[Message]:
@@ -29,4 +32,3 @@ def save_message(message: Message):
 def save_messages(messages: List[Message]):
     with open(path, 'w') as f:
         json.dump([message.dict() for message in messages], f)
-    
