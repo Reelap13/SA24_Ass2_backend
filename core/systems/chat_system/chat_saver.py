@@ -18,7 +18,7 @@ def load_messages() -> List[Message]:
     with open(path, 'r') as f:
         if os.stat(path).st_size == 0:
             return []
-        
+    
         messages_data = json.load(f)
         return [Message(**data) for data in messages_data]
 
